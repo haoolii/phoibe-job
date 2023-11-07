@@ -14,7 +14,7 @@ export const parseContent = (content: string): Record[] => {
       websiteName: tds[0].textContent,
       url: tds[1].textContent,
       count: +tds[2].textContent,
-    });
+    } as any);
   }
   return result;
 };
