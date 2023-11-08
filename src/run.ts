@@ -19,20 +19,6 @@ const main = async () => {
         description: "165",
       },
     });
-    // const resp = await prisma.record.create({
-    //   data: {
-    //     websiteName: "tset",
-    //     url: "www",
-    //     originId: "165",
-    //     count: 0,
-    //     published: false,
-    //     deleted: false,
-    //     source: {
-    //       connect: { id: newSource.id },
-    //     },
-    //   },
-    // });
-    // console.log('resp', resp)
   }
   const response = await fetch(API);
   const json = await response.json();
@@ -42,7 +28,6 @@ const main = async () => {
       const target = data[i];
       const websites = parseContent(target.content)
       const pure_websites = websites.filter(website => website.websiteName !== '網站名稱')
-      console.log(pure_websites)
       await db.add(`${target.id}`, `${source.id}`, pure_websites);
       console.log('Count: ', i)
   }
