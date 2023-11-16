@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { Record } from "./types";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 export default {
-  add: async (originId: string, sourceId: string, records: Record[]) => {
+  add: async (prisma: PrismaClient,originId: string, sourceId: string, records: Record[]) => {
     try {
       const rs = records.map((record) => ({
         websiteName: record.websiteName || "",
@@ -13,7 +13,7 @@ export default {
         originId: originId || '',
         sourceId: sourceId,
         published: true,
-        deleted: false,
+        deleted: false
       }));
       await prisma.record.createMany({
         data: rs,

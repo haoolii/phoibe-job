@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/run.ts"
+    "start": "ts-node ./src/run.ts",
+    "play": "ts-node ./src/play.ts"
   },
   "keywords": [],
   "author": "",
